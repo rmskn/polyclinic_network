@@ -27,6 +27,8 @@ Route::middleware('auth:sanctum')->get('/products', function(Request $request) {
     //dd($request->user());
 });
 
+Route::get('/jsontest', [\App\Http\Controllers\TestController::class, 'test2']);
+
 Route::group(
     [
     ],
