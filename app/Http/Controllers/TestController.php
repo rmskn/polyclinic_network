@@ -12,33 +12,9 @@ class TestController
     public function test2()
     {
         $json = '[
-  {
-    "item_id": 1,
-    "name": "Maxwells Pink",
-    "description": "30ml salt nicotine 12mg",
-    "price": "550 rub",
-    "category": "liquid",
-    "image": "https://vapeclub.kz/image/cache/catalog/product/liquid/Maxwells%20SALT%2030%20%D0%BC%D0%BB%20PINK-800x800.jpeg",
-    "reviews": [
-      {
-        "review_id": 1,
-        "item_id": 1,
-        "user_id": 1,
-        "text": "Максвелс, как всегда на высоте!",
-        "date": "2022-01-05T10:26:16+00:00"
-      },
-      {
-        "review_id": 2,
-        "item_id": 1,
-        "user_id": 2,
-        "text": "Кайфарики",
-        "date": "2022-01-07T14:12:18+00:00"
-      }
-    ]
-  },
-  {
+    {
     "item_id": 2,
-    "name": "The Cannibals King",
+    "name": "TESTTESTTEST",
     "description": "30ml salt nicotine 20mg",
     "price": "500 rub",
     "category": "liquid",
@@ -47,7 +23,7 @@ class TestController
   },
   {
     "item_id": 3,
-    "name": "Jam Monster",
+    "name": "Jam TESTTESTTEST",
     "description": "100ml 0mg",
     "price": "1200 rub",
     "category": "liquid",
@@ -56,7 +32,7 @@ class TestController
   },
   {
     "item_id": 4,
-    "name": "The Scandalist - Apple Jesus",
+    "name": "The TESTTESTTEST - Apple Jesus",
     "description": "58ml 0mg",
     "price": "600 rub",
     "category": "liquid",
@@ -65,7 +41,7 @@ class TestController
   },
   {
     "item_id": 5,
-    "name": "Vandy Vape Phobia",
+    "name": "Vandy TESTTESTTEST Phobia",
     "description": "RDA",
     "price": "2200 rub",
     "category": "accessory",
@@ -83,7 +59,7 @@ class TestController
   },
   {
     "item_id": 7,
-    "name": "Wick N Vape Prime",
+    "name": "Wick N TESTTESTTEST Prime",
     "description": "Cotton Bacon",
     "price": "400 rub",
     "category": "accessory",
@@ -101,7 +77,7 @@ class TestController
   },
   {
     "item_id": 9,
-    "name": "Bad Drip Bad Blood",
+    "name": "Bad TESTTESTTEST Bad Blood",
     "description": "60ml 3mg",
     "price": "1300 rub",
     "category": "liquid",
@@ -110,7 +86,7 @@ class TestController
   },
   {
     "item_id": 10,
-    "name": "Smoant Santi",
+    "name": "Smoant TESTTESTTEST",
     "description": "Color: Rainbow",
     "price": "2400 rub",
     "category": "POD",
@@ -119,7 +95,7 @@ class TestController
   },
   {
     "item_id": 11,
-    "name": "Smoant Karat",
+    "name": "Smoant TESTTESTTEST",
     "description": "Color: Gradient blue",
     "price": "1500 rub",
     "category": "POD",
@@ -128,7 +104,7 @@ class TestController
   },
   {
     "item_id": 12,
-    "name": "Smoant Battlestar Baby",
+    "name": "Smoant Battlestar TESTTESTTEST",
     "description": "Color: Black",
     "price": "2000 rub",
     "category": "POD",
@@ -137,7 +113,7 @@ class TestController
   },
   {
     "item_id": 13,
-    "name": "Vapor Storm Puma",
+    "name": "Vapor TESTTESTTEST Puma",
     "description": "Color: Limited edition",
     "price": "2600 rub",
     "category": "MOD",
@@ -155,7 +131,7 @@ class TestController
   },
   {
     "item_id": 15,
-    "name": "Испаритель на Smoant Santi",
+    "name": "TESTTESTTEST на Smoant Santi",
     "description": "0.4ohm",
     "price": "250 rub",
     "category": "accessory",
@@ -173,7 +149,7 @@ class TestController
   },
   {
     "item_id": 17,
-    "name": "Аккумулятор SONY 18650 VTC6",
+    "name": "Аккумулятор TESTTESTTEST 18650 VTC6",
     "description": "3000 mAh, 30А",
     "price": "800 rub",
     "category": "accessory",
