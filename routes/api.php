@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\APITokenController;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\PolyclinicController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
@@ -16,32 +20,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::post('/sanctum/token', [APITokenController::class, 'create_token']);
 
-Route::middleware('auth:sanctum')->get('/products', function(Request $request) {
-    dd(json_encode(['key1' => 'value1', 'key2' => 2, 'key3' => true], JSON_THROW_ON_ERROR));
-    //dd($request->user());
+Route::group(['middleware' => 'auth:sanctum', 'namespace' => 'App\Http\Controllers'], function () {
+    Route::name('polyclinic')
+        ->prefix('polyclinic')
+        ->group(function () {
+            Route::get('getByCity', [PolyclinicController::class, 'getPolyclinicsByCity'])
+                ->name('getByCity');
+            Route::get('getDoctorsByPolyclinicId', [DoctorController::class, 'getDoctorsByPolyclinic'])
+                ->name('getDoctorsByPolyclinicId');
+        });
+
+    Route::name('appointment')
+        ->prefix('appointment')
+        ->group(function () {
+            Route::get('getAvailableTimeToAppointment', [AppointmentController::class, 'getAvailableTimeToAppointment'])
+                ->name('getAvailableTimeToAppointment');
+            Route::get('createAppointment', [AppointmentController::class, 'createAppointment'])
+                ->name('createAppointment');
+            Route::get('getHistoryOfAppointment', [AppointmentController::class, 'getHistoryOfAppointment'])
+                ->name('getHistoryOfAppointment');
+        });
+
+    Route::name('user')
+        ->prefix('user')
+        ->group(function () {
+            Route::get('getUserInfo', [UserController::class, 'getUserInfo'])
+                ->name('getUserInfo');
+            Route::post('updateUserInfo', [UserController::class, 'updateUserInfo'])
+                ->name('updateUserInfo');
+        });
 });
-
-Route::get('/jsontest', [\App\Http\Controllers\TestController::class, 'test2']);
-
-Route::group(
-    [
-    ],
-    function (Router $api) {
-        $api->get(
-            'test',
-            \App\Http\Controllers\TestController::class . '@test'
-        );
-
-//        $api->get(
-//            'cart',
-//            CartController::class . '@getCartPage'
-//        );
-
-    }
-);
