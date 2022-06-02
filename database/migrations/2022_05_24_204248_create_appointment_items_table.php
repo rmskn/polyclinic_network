@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('appointment_items', function (Blueprint $table) {
             $table->id();
             $table->integer('app_id');
-            $table->integer('doc_service_id');
+            $table->integer('doc_employment_id');
             $table->string('description');
             $table->float('price');
             $table->timestamps();

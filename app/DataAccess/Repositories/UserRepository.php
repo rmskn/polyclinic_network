@@ -3,6 +3,7 @@
 namespace App\DataAccess\Repositories;
 
 use App\Models\User;
+use DateTime;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -53,6 +54,16 @@ class UserRepository
         return $query === null;
     }
 
+    public function checkUniqueLogin(string $login): bool
+    {
+        $query = User::query()
+            ->select('*')
+            ->where('login', $login)
+            ->get();
+
+        return $query === null;
+    }
+
     public function checkUniquePhone(string $phone): bool
     {
         $query = User::query()
@@ -91,5 +102,33 @@ class UserRepository
         }
 
         return true;
+    }
+
+    public function createUser(
+        string $firstName,
+        string $lastName,
+        string $phone,
+        string $dateOfBirth,
+        string $login,
+        string $email,
+        string $password,
+        string $city,
+    ):int|null {
+        $user = new User();
+
+        $user->first_name = $firstName;
+        $user->last_name = $lastName;
+        $user->phone = $phone;
+        $user->date_of_birth = new DateTime($dateOfBirth);
+        $user->login = $login;
+        $user->email = $email;
+        $user->password = Hash::make($password);
+        $user->city = $city;
+
+        $user->save();
+
+        $userId = $user->id;
+
+        return $userId ?? null;
     }
 }

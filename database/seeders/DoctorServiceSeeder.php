@@ -15,14 +15,14 @@ class DoctorServiceSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('doctor_services')->insert([
+        DB::table('doctor_employments')->insert([
             'doctor_id' => 1,
-            'service_id' => 1,
+            'employment_id' => 1,
         ]);
 
-        DB::table('doctor_services')->insert([
+        DB::table('doctor_employments')->insert([
             'doctor_id' => 1,
-            'service_id' => 2,
+            'employment_id' => 2,
         ]);
     }
 }

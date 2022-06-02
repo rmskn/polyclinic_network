@@ -15,7 +15,7 @@ class ServiceSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('services')->insert([
+        DB::table('employments')->insert([
             'spec_id' => 1,
             'title' => 'Consultation',
             'description' => 'Consultation description',
@@ -23,7 +23,7 @@ class ServiceSeeder extends Seeder
             'duration' => 10
         ]);
 
-        DB::table('services')->insert([
+        DB::table('employments')->insert([
             'spec_id' => 2,
             'title' => 'Endoscopy',
             'description' => 'Endoscopy description',
@@ -31,7 +31,7 @@ class ServiceSeeder extends Seeder
             'duration' => 20
         ]);
 
-        DB::table('services')->insert([
+        DB::table('employments')->insert([
             'spec_id' => 2,
             'title' => 'Consultation',
             'description' => 'Consultation description',

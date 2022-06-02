@@ -20,7 +20,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/sanctum/token', [APITokenController::class, 'create_token']);
+Route::post('/sanctum/token', [APITokenController::class, 'createToken']);
+
+Route::post('/user/register', [UserController::class, 'registerUser']);
 
 Route::group(['middleware' => 'auth:sanctum', 'namespace' => 'App\Http\Controllers'], function () {
     Route::name('polyclinic')

@@ -9,7 +9,7 @@ use Illuminate\Validation\ValidationException;
 
 class APITokenController extends Controller
 {
-    public function create_token(Request $request)
+    public function createToken(Request $request)
     {
         $request->validate([
             'email' => 'required|email',

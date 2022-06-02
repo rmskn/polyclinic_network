@@ -17,21 +17,21 @@ class AppointmentItemSeeder extends Seeder
     {
         DB::table('appointment_items')->insert([
             'app_id' => 1,
-            'doc_service_id' => 1,
+            'doc_employment_id' => 1,
             'description' => 'serv desc 1',
             'price' => 1000
         ]);
 
         DB::table('appointment_items')->insert([
             'app_id' => 1,
-            'doc_service_id' => 3,
+            'doc_employment_id' => 3,
             'description' => 'serv desc 3',
             'price' => 1000
         ]);
 
         DB::table('appointment_items')->insert([
             'app_id' => 2,
-            'doc_service_id' => 1,
+            'doc_employment_id' => 1,
             'description' => 'serv desc 1',
             'price' => 1000
         ]);
