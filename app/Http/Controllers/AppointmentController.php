@@ -6,6 +6,7 @@ use App\DataAccess\Repositories\AppointmentRepository;
 use App\Services\AppointmentService;
 use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class AppointmentController extends Controller
 {
@@ -32,7 +33,9 @@ class AppointmentController extends Controller
         $freeTime = $this->appointmentService->calculateFreeTime($doctorAppointments);
 
         if ($freeTime === []) {
-            return json_encode(['error' => 'No free places'], JSON_THROW_ON_ERROR);
+            return Response::json([
+                'error' => 'No free places'
+            ], 400);
         }
 
         return json_encode($freeTime, JSON_THROW_ON_ERROR);
@@ -47,7 +50,9 @@ class AppointmentController extends Controller
         $appId = $this->appointmentRepository->create($userId, $doctorId, $date);
 
         if ($appId === false) {
-            return json_encode(['error' => 'Failed to register appointment'], JSON_THROW_ON_ERROR);
+            return Response::json([
+                'error' => 'Failed to register appointment'
+            ], 400);
         }
 
         return json_encode(['appId' => $appId], JSON_THROW_ON_ERROR);

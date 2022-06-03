@@ -6,11 +6,6 @@ use App\Models\Polyclinic;
 
 class PolyclinicRepository
 {
-
-    public function __construct()
-    {
-    }
-
     public function getPolyclinicsByCity(string $city)
     {
         return Polyclinic::query()

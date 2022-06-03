@@ -7,11 +7,7 @@ use PhpParser\Comment\Doc;
 
 class DoctorRepository
 {
-    public function __construct()
-    {
-    }
-
-    public function getDoctorsByPolyclinic(int $polyclinicId)
+      public function getDoctorsByPolyclinic(int $polyclinicId)
     {
         return Doctor::query()
             ->select('*')

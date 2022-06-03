@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DataAccess\Repositories\UserRepository;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class UserController
 {
@@ -33,15 +34,24 @@ class UserController
         ]);
 
         if (!$this->userRepository->checkUniquePhone($validated['phone'])) {
-            return json_encode(['result' => 'failed', 'error' => 'phone is already in use'], JSON_THROW_ON_ERROR);
+            return Response::json([
+                'result' => 'failed',
+                'error' => 'phone is already in use'
+            ], 400);
         }
 
         if (!$this->userRepository->checkUniqueLogin($validated['login'])) {
-            return json_encode(['result' => 'failed', 'error' => 'login is already taken'], JSON_THROW_ON_ERROR);
+            return Response::json([
+                'result' => 'failed',
+                'error' => 'login is already in use'
+            ], 400);
         }
 
         if (!$this->userRepository->checkUniqueEmail($validated['email'])) {
-            return json_encode(['result' => 'failed', 'error' => 'email is already in use'], JSON_THROW_ON_ERROR);
+            return Response::json([
+                'result' => 'failed',
+                'error' => 'email is already in use'
+            ], 400);
         }
 
         $userId = $this->userRepository->createUser(
@@ -56,10 +66,10 @@ class UserController
         );
 
         if ($userId === null) {
-            return json_encode(
-                ['result' => 'failed', 'error' => 'failed to add user to database'],
-                JSON_THROW_ON_ERROR
-            );
+            return Response::json([
+                'result' => 'failed',
+                'error' => 'failed to add user to database'
+            ], 400);
         }
 
         $user = User::query()->find($userId);
@@ -108,9 +118,16 @@ class UserController
             if ($result) {
                 return json_encode(['result' => 'Success'], JSON_THROW_ON_ERROR);
             }
-            return json_encode(['error' => 'Failed to update database'], JSON_THROW_ON_ERROR);
+
+            return Response::json([
+                'result' => 'failed',
+                'error' => 'Failed to update database'
+            ], 400);
         }
 
-        return json_encode(['error' => 'Dont unique data'], JSON_THROW_ON_ERROR);
+        return Response::json([
+            'result' => 'failed',
+            'error' => 'Dont unique data'
+        ], 400);
     }
 }
