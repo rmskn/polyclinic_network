@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Validation\ValidationException;
 
 class APITokenController extends Controller
@@ -20,9 +21,9 @@ class APITokenController extends Controller
         $user = User::where('email', $request->input('email'))->first();
 
         if (! $user ||! Hash::check($request->input('password'), $user->password)) {
-            return [
+            return Response::json([
                 'error' => 'The provided credentials are incorrect.'
-            ];
+            ], 400);
         }
 
         $user->tokens()->delete();

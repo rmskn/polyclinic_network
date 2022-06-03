@@ -21,7 +21,6 @@ class DoctorController extends Controller
         $this->doctorService = $doctorService;
     }
 
-
     public function getDoctorsByPolyclinic(Request $request)
     {
         $polyclinicId = (int)$request['polyclinicId'];

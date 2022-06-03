@@ -20,6 +20,14 @@ class UserRepository
         $this->userAdditionRepository = $userAdditionRepository;
     }
 
+    public function getUserIdByEmail(string $email)
+    {
+        return User::query()
+            ->select('id')
+            ->where('email', $email)
+            ->first();
+    }
+
     public function getFirstNameById(int $userId)
     {
         return User::query()
